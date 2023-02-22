@@ -11,7 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/', require('./Authentication/auth'));
-
+app.use('/', require('./Routes/User'));
+app.use('/', require('./Routes/Tweet'));
 
 app.get('/', (req, res) => {
     console.log(res);
@@ -33,4 +34,4 @@ app.get('/', (req, res) => {
 //     }
 // })
 const db = mongoose.connect("mongodb://localhost/Twitter").then(() => console.log('database connected')).catch((e) => console.log(e));
-app.listen(3002, () => console.log('listining to the server....'))
+app.listen(3002, () => console.log('listining to the server....'));

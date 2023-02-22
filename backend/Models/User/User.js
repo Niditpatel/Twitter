@@ -10,7 +10,6 @@ const UserSchema = new mongoose.Schema({
     // take phone number or email from use one is required
     Phone: {
         type: Number,
-        unique: true,
         validate: {
             validator: (v) => {
                 return v.toString().length === 10;
@@ -18,7 +17,7 @@ const UserSchema = new mongoose.Schema({
             message: v => `${v.value} has to be 10 digits`
         }
     },
-    Email: { type: String, unique: true },
+    Email: { type: String },
     Password: String
 }, { timestamps: true })
 
